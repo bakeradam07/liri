@@ -47,3 +47,21 @@ function movieThis() {
         console.log("Cast: " + response.data.Actors);
     });
 };
+
+function concertThis() {
+    if (!userSelection) {
+        userSelection = "Linkin Park";
+    }
+    
+    axios.get("https://rest.bandsintown.com/artists/" + userSelection + "/events?app_id=codingbootcamp").then(function(response) {
+
+        // console.log(userSelection);        
+        console.log("Venue: " + response.data[2].venue.name);
+        console.log("Location: " + response.data[2].venue.city + ", " + response.data[2].venue.country);
+        console.log("Date: " + moment(response.data[2].datetime).format("MM/DD/YYYY"));
+        console.log("------------------------------");
+        
+    });
+    
+};
+
