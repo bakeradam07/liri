@@ -1,10 +1,13 @@
 require("dotenv").config();
 
 var keys = require("./keys.js");
-// var spotify = new Spotify(keys.spotify);
+//var spotify = new Spotify(keys.spotify);
+// var Spotify = require('node-spotify-api');
 var fs = require("fs");
 var axios = require("axios");
 var moment = require("moment");
+
+// console.log(keys.spotify);
 
 
 
@@ -55,13 +58,32 @@ function concertThis() {
     
     axios.get("https://rest.bandsintown.com/artists/" + userSelection + "/events?app_id=codingbootcamp").then(function(response) {
 
-        // console.log(userSelection);        
-        console.log("Venue: " + response.data[2].venue.name);
-        console.log("Location: " + response.data[2].venue.city + ", " + response.data[2].venue.country);
-        console.log("Date: " + moment(response.data[2].datetime).format("MM/DD/YYYY"));
+        for (i = 0; i < 10; i++) {      
+        console.log("Venue: " + response.data[i].venue.name);
+        console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+        console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
         console.log("------------------------------");
+
+        }
         
     });
     
+};
+
+function spotifyThis() {
+    if (!userSelection) {
+        userSelection = "The Sign"
+    }
+
+    spotify.search({type: "track", query: userSelection}, function(err, data){
+        if (err) {
+            console.log('Error occurred: ' + err);
+        }
+        console.log(userSelection);
+        console.log("Artist: " + data.tracks.items.artists.name);
+        console.log("Song Name: " + data.tracks.items.name);
+        console.log("Preview Link: " + data.tracks.items.preview_url);
+        console.log("Album: " + data.tracks.items.album.name);
+    });
 };
 
