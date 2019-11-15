@@ -40,9 +40,9 @@ node liri.js concert-this <artist/band name here>
 This will search the Bands in Town Artist Events API ("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp") for an artist and render the following information about each event to the terminal:
 
 
-Name of the venue
-Venue location
-Date of the Event (use moment to format this as ("MM/DD/YYYY")
+* Name of the venue
+* Venue location
+* Date of the Event (use moment to format this as ("MM/DD/YYYY")
 
 ![image](https://user-images.githubusercontent.com/54034107/68907139-bbd10700-0714-11ea-95b3-47a20ff0a53e.png)
 
@@ -57,10 +57,10 @@ This function should:
 Show the following information about the song in your terminal/bash window
 
 
-Artist(s)
-The song's name
-A preview link of the song from Spotify
-The album that the song is from
+* Artist(s)
+* The song's name
+* A preview link of the song from Spotify
+* The album that the song is from
 
 
 If no song is provided then your program will default to "The Sign" by Ace of Base.
